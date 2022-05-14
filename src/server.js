@@ -2,12 +2,12 @@ const express = require('express')
 const app = express()
 
 const routerAdmin = require('./routes/admin')
-const routerClient = require('./routes/client')
+const routerCustomer = require('./routes/customer')
 
 
 app.use(express.json())
 app.use('/admin',routerAdmin)
-app.use('/client',routerClient)
+app.use('/customer',routerCustomer)
 
 
 

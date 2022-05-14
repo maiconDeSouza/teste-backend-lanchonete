@@ -1,5 +1,5 @@
 const { v4 } = require('uuid')
-const { customersDB, productDB } = require('../database/db')
+const { customersDB, productDB, requestDB } = require('../database/db')
 
 
 function createProduct(req, res){
@@ -37,9 +37,32 @@ function removeProduct(req, res){
     
 }
 
+function listCustomers(req, res){
+    res.status(200).json({
+        message:"Customer List",
+        customersDB
+    })
+}
+
+function listAllRequest(req, res){
+    res.status(200).json(requestDB)
+}
+
+function statusRequests(req, res){
+    const { idRequests } = req.headers
+    const { status } = req.body
+
+    const request = requestDB.find(req => req.idRequests === idRequests)
+    request.status = status
+    
+    res.status(200).json(request)
+}
 
 module.exports = {
     createProduct,
     listProduct,
-    removeProduct
+    removeProduct,
+    listCustomers,
+    listAllRequest,
+    statusRequests
 }

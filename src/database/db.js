@@ -29,8 +29,11 @@ const admin = [
     }
 ]
 
+const requestDB = []
+
 module.exports = {
     customersDB,
     productDB,
-    admin
+    admin,
+    requestDB
 }
