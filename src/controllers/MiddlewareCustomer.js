@@ -38,7 +38,7 @@ function orderedItems(req, res, next){
 
     const ordem = {
         idRequest: v4(),
-        data: `${new Date().getDay()}/${new Date().getMonth()}/${new Date().getFullYear()}`,
+        data: `${new Date().getDay()}/${new Date().getMonth() + 1}/${new Date().getFullYear()}`,
         name: customer.name,
         idCustomer: customer.id,
         item:[],
